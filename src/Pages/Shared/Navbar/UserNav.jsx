@@ -44,6 +44,16 @@ const UserNav = () => {
                 {/* for Delivery Man */}
                 {/* TODO */}
                 {/* for Admin */}
+                {
+                    role === 'Admin' &&
+                    <>
+                        <li>
+                            <NavLink to='/dashboard' className='bg-gray-700'>
+                                Dashboard
+                            </NavLink>
+                        </li>
+                    </>
+                }
                 <li>
                     <button onClick={handleLogout} className="bg-gray-700">
                         Log Out

@@ -3,8 +3,12 @@ import { MdCancel } from "react-icons/md";
 import { MdOutlinePayment } from "react-icons/md";
 import React from 'react';
 import { Link } from "react-router-dom";
+import axios from "axios";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
-const MyParcelRow = ({ parcel, inx }) => {
+const MyParcelRow = ({ parcel, inx, refetch }) => {
+   const axiosSecure = useAxiosSecure()
    const {
       _id,
       name,
@@ -25,8 +29,18 @@ const MyParcelRow = ({ parcel, inx }) => {
       bookingStatus
    } = parcel;
 
-   const handleUpdateParcel = (id) => {
-      console.log(id)
+   const handleCancel = (id) => {
+      axiosSecure.patch(`/parcels/returned/${id}`)
+         .then(res => {
+            if (res.data.modifiedCount) {
+               toast.success('Your parcel returned successfully')
+               console.log(res.data)
+               refetch()
+            }
+         })
+         .catch(error => {
+            console.log('status update error', error)
+         })
    }
 
    return (
@@ -42,7 +56,7 @@ const MyParcelRow = ({ parcel, inx }) => {
 
             {/* status */}
             <td
-               className={`border text-xs md:text-base border-gray-300 px-2 md:px-4 py-2 ${parcel.bookingStatus === 'pending'
+               className={`border text-xs font-semibold md:text-base border-gray-300 px-2 md:px-4 py-2 ${parcel.bookingStatus === 'pending'
                   ? 'text-yellow-500'
                   : parcel.bookingStatus === 'on the way'
                      ? 'text-blue-500'
@@ -66,14 +80,12 @@ const MyParcelRow = ({ parcel, inx }) => {
 
                      <Link to={`/dashboard/update-parcel/${_id}`}>
                         <button
-                           onClick={() => handleUpdateParcel(_id)}
                            title="Update">
                            <FaEdit />
                         </button>
                      </Link>
                      :
                      <button
-                        onClick={() => handleUpdateParcel(_id)}
                         disabled={true}
                         className="cursor-not-allowed opacity-50">
                         <FaEdit />
@@ -81,6 +93,7 @@ const MyParcelRow = ({ parcel, inx }) => {
                }
 
                <button
+                  onClick={() => handleCancel(_id)}
                   disabled={bookingStatus !== 'pending'}
                   title={`${bookingStatus === 'pending' ? "Cancel" : ""}`}
                   className={`text-red-500 ${bookingStatus !== 'pending' ? 'cursor-not-allowed opacity-50' : ''}`}

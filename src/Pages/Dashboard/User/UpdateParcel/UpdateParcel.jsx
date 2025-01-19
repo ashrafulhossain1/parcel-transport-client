@@ -8,10 +8,10 @@ import toast from 'react-hot-toast';
 
 const UpdateParcel = () => {
    const singleParcel = useLoaderData()
-   console.log(singleParcel)
+   // console.log(singleParcel)
 
    const { id } = useParams()
-   console.log('from url id is', id)
+   // console.log('from url id is', id)
 
 
    const { user } = useAuth();
@@ -67,7 +67,7 @@ const UpdateParcel = () => {
             console.log(res.data)
             if (res.data.modifiedCount) {
                Swal.fire("Your parcel updated successfully");
-               console.log(res.data)
+               // console.log(res.data)
                navigate('/dashboard/my-parcels')
             }
          })

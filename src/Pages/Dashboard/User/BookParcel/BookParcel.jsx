@@ -37,7 +37,7 @@ const BookParcel = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire("Your Parcel added Successfully");
-                    // navigate('/dashboard/my-parcels')
+                    navigate('/dashboard/my-parcels')
                 }
             })
     };

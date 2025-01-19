@@ -8,6 +8,8 @@ import Profile from "../Pages/Dashboard/User/Profile/Profile";
 import BookParcel from "../Pages/Dashboard/User/BookParcel/BookParcel";
 import MyParcels from "../Pages/Dashboard/User/MyParcels/MyParcels";
 import UpdateParcel from "../Pages/Dashboard/User/UpdateParcel/UpdateParcel";
+import AdminStats from "../Pages/Dashboard/Admin/AdminStats/AdminStats";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
 
 
 export const router = createBrowserRouter([
@@ -33,6 +35,17 @@ export const router = createBrowserRouter([
         path: 'dashboard',
         element: <Dashboard></Dashboard>,
         children: [
+            // role admin
+            {
+                index: true,
+                element: <AdminStats></AdminStats>
+            },
+            {
+                path: 'all-users',
+                element: <AllUsers></AllUsers>
+            },
+
+            // role  User
             {
                 path: 'my-profile',
                 element: <Profile></Profile>
