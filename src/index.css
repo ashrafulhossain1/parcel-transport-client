@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.nav-glass {
+    background: linear-gradient(135deg, rgba(22, 43, 1, 0.8), rgba(105, 64, 12, 1.8), rgb(10, 10, 10));
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    /* Reduced blur */
+    -webkit-backdrop-filter: blur(2px);
+    /* Reduced blur */
+}
