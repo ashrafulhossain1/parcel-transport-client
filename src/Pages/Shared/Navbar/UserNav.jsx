@@ -36,7 +36,7 @@ const UserNav = () => {
                 {role === 'User' &&
 
                     <li>
-                        <NavLink to='/dashboard' className='bg-gray-700'>
+                        <NavLink to='/dashboard/my-profile' className='bg-gray-700'>
                             Dashboard
                         </NavLink>
                     </li>

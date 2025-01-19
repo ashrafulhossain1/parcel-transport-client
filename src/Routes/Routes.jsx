@@ -7,6 +7,7 @@ import Dashboard from "../Layout/Dashboard";
 import Profile from "../Pages/Dashboard/User/Profile/Profile";
 import BookParcel from "../Pages/Dashboard/User/BookParcel/BookParcel";
 import MyParcels from "../Pages/Dashboard/User/MyParcels/MyParcels";
+import UpdateParcel from "../Pages/Dashboard/User/UpdateParcel/UpdateParcel";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,11 @@ export const router = createBrowserRouter([
             {
                 path: 'book-parcel',
                 element: <BookParcel></BookParcel>
+            },
+            {
+                path: 'update-parcel/:id',
+                element: <UpdateParcel></UpdateParcel>,
+                loader: ({ params }) => fetch(`http://localhost:5000/parcels/update/${params.id}`)
             },
             {
                 path: 'my-parcels',
