@@ -5,7 +5,7 @@ import useRole from '../../../hooks/useRole';
 const UserNav = () => {
     const { user, logOut } = useAuth()
     const [role, isLoading] = useRole()
-    console.log('User Role -----------',role,isLoading)
+    console.log('User Role -----------', role, isLoading)
 
     const handleLogout = () => {
         logOut()
@@ -32,11 +32,18 @@ const UserNav = () => {
                 <li>
                     <button className="bg-gray-700" disabled={true}>{user?.displayName}</button>
                 </li>
-                <li>
-                    <NavLink to='/dashboard' className='bg-gray-700'>
-                        Dashboard
-                    </NavLink>
-                </li>
+                {/* for user */}
+                {role === 'User' &&
+
+                    <li>
+                        <NavLink to='/dashboard' className='bg-gray-700'>
+                            Dashboard
+                        </NavLink>
+                    </li>
+                }
+                {/* for Delivery Man */}
+                {/* TODO */}
+                {/* for Admin */}
                 <li>
                     <button onClick={handleLogout} className="bg-gray-700">
                         Log Out

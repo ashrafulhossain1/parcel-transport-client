@@ -3,6 +3,11 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home/Home";
 import SignUp from "../Pages/Auth/SignUp";
 import SignIn from "../Pages/Auth/SignIn";
+import Dashboard from "../Layout/Dashboard";
+import Profile from "../Pages/Dashboard/User/Profile/Profile";
+import BookParcel from "../Pages/Dashboard/User/BookParcel/BookParcel";
+import MyParcels from "../Pages/Dashboard/User/MyParcels/MyParcels";
+
 
 export const router = createBrowserRouter([
     {
@@ -22,5 +27,23 @@ export const router = createBrowserRouter([
     {
         path: '/signIn',
         element: <SignIn></SignIn>
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'my-profile',
+                element: <Profile></Profile>
+            },
+            {
+                path: 'book-parcel',
+                element: <BookParcel></BookParcel>
+            },
+            {
+                path: 'my-parcels',
+                element: <MyParcels></MyParcels>
+            }
+        ]
     }
 ])
