@@ -6,8 +6,8 @@ import { Link, NavLink } from 'react-router-dom';
 import UserNav from './UserNav';
 
 const Navbar = () => {
-    const { user, googleLogin, logOut } = useAuth()
-    console.log(user)
+    const { user } = useAuth()
+
     return (
         <div className="navbar nav-glass   text-white shadow-lg">
             <div className="flex-1">

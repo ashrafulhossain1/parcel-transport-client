@@ -9,7 +9,7 @@ const MyParcels = () => {
   const [filter, setFilter] = useState('')
   const axiosSecure = useAxiosSecure();
 
-  const { data: myParcels, isLoading: myParcelLoading, refetch } = useQuery({
+  const { data: myParcels = [], isLoading: myParcelLoading, refetch } = useQuery({
     queryKey: ['myParcels', user?.email, filter],
     enabled: !loading || !!user,
     queryFn: async () => {
@@ -28,7 +28,7 @@ const MyParcels = () => {
   return (
     <div className="p-1 md:p-4 lg:p-6  ">
       <div className="flex justify-between md:items-center flex-col md:flex-row">
-        <h1 className="text-2xl font-bold mb-4 text-center">Total Parcel: {myParcels.length}</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">Total Parcel: {myParcels?.length}</h1>
         <div className="text-base md:text-xl font-bold mb-4 text-center">
           <h2 className="mb-2">Filter by Status:</h2>
           <select

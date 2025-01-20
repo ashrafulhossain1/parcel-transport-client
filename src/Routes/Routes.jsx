@@ -10,6 +10,9 @@ import MyParcels from "../Pages/Dashboard/User/MyParcels/MyParcels";
 import UpdateParcel from "../Pages/Dashboard/User/UpdateParcel/UpdateParcel";
 import AdminStats from "../Pages/Dashboard/Admin/AdminStats/AdminStats";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
+import AllParcels from "../Pages/Dashboard/Admin/AllParcels/AllParcels";
+import AllDeliveryMan from "../Pages/Dashboard/Admin/AllDeliveryMan/AllDeliveryMan";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
@@ -41,10 +44,17 @@ export const router = createBrowserRouter([
                 element: <AdminStats></AdminStats>
             },
             {
-                path: 'all-users',
-                element: <AllUsers></AllUsers>
+                path: 'all-parcels',
+                element: <AdminRoute><AllParcels></AllParcels></AdminRoute>
             },
-
+            {
+                path: 'all-delivery-men',
+                element: <AdminRoute><AllDeliveryMan></AllDeliveryMan></AdminRoute>
+            },
+            {
+                path: 'all-users',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
             // role  User
             {
                 path: 'my-profile',

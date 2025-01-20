@@ -5,7 +5,6 @@ import useRole from '../../../hooks/useRole';
 const UserNav = () => {
     const { user, logOut } = useAuth()
     const [role, isLoading] = useRole()
-    console.log('User Role -----------', role, isLoading)
 
     const handleLogout = () => {
         logOut()
