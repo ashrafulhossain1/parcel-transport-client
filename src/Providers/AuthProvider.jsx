@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(true)
     const [loading, setLoading] = useState(true)
     const axiosPublic = useAxiosPublic()
+    
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -65,7 +66,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             return unsubscribe()
         }
-    }, [])
+    }, [axiosPublic])
 
 
     const authInfo = {
@@ -76,6 +77,7 @@ const AuthProvider = ({ children }) => {
         googleLogin,
         updateProfileData,
         logOut,
+        setLoading
     }
 
     return (

@@ -12,8 +12,8 @@ const useAxiosSecure = () => {
     // send token in server site
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
-        console.log('REQUEST INTERRUPTED BY INTERCEPTOR')
 
+        // console.log('REQUEST INTERRUPTED BY INTERCEPTOR')
         config.headers.authentication = `bearer ${token}`
 
         return config

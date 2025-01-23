@@ -20,7 +20,7 @@ const MyParcels = () => {
     }
   })
 
-  // console.log(filter)
+  console.log(myParcels)
 
   if (myParcelLoading) {
     return <h4>amiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h4>

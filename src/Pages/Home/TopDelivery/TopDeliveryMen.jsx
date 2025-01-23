@@ -1,6 +1,19 @@
 import React from 'react';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const TopDeliveryMen = () => {
+    const axiosPublic = useAxiosPublic();
+
+    const { data: topDelivery = [], isLoading } = useQuery({
+        queryKey: ['topDelivery'],
+        queryFn: async () => {
+            const { data } = await axiosPublic.get('/topDeliveryMen');
+            return data;
+        }
+    });
+
+    console.log(topDelivery)
     return (
         <div className="bg-green-100/50 py-6 md:py-12">
             <div className="max-w-7xl mx-auto text-center mb-12">
@@ -10,57 +23,35 @@ const TopDeliveryMen = () => {
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {/* Card 1 */}
-                <div className="bg-white rounded-lg shadow-md overflow-hidden group">
-                    <div className="overflow-hidden">
-                        <img
-                            src="https://i.ibb.co.com/ngWGY50/istockphoto-1168548978-2048x2048.jpg"
-                            alt="John Doe"
-                            className="w-full h-72 object-cover transform transition-transform duration-300 group-hover:scale-110"
-                        />
-                    </div>
-                    <div className="p-4">
-                        <h3 className="text-xl font-semibold text-gray-800 uppercase">John Doe</h3>
-                        <p className="text-gray-500 mt-2">Parcels Delivered: <span className="font-bold text-gray-800">120</span></p>
-                        <div className="flex items-center mt-4">
-                            <span className="text-yellow-400 text-lg">★★★★☆</span>
+                {topDelivery.map(man => (
+                    <div key={man.id} className="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div className="overflow-hidden">
+                            <img
+                                src={man.image}
+                                alt={man.name}
+                                className="w-full h-72 object-cover transform transition-transform duration-300 group-hover:scale-110"
+                            />
+                        </div>
+                        <div className="p-4">
+                            <h3 className="text-xl font-semibold text-gray-800 uppercase">{man?.name}</h3>
+                            <p className="text-gray-500 mt-2">
+                                Parcels Delivered: <span className="font-bold text-gray-800">{man?.deliveryCount}</span>
+                            </p>
+                            <div className="flex items-center mt-4">
+                                {Array.from({ length: 5 }, (_, index) => (
+                                    <span
+                                        key={index}
+                                        className={`text-lg ${
+                                            index < Math.round(man?.reviewAverage) ? 'text-yellow-400' : 'text-gray-300'
+                                        }`}
+                                    >
+                                        ★
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-                {/* Card 2 */}
-                <div className="bg-white rounded-lg shadow-md overflow-hidden group">
-                    <div className="overflow-hidden">
-                        <img
-                            src="https://i.ibb.co.com/ngWGY50/istockphoto-1168548978-2048x2048.jpg"
-                            alt="Michael Smith"
-                            className="w-full h-72 object-cover transform transition-transform duration-300 group-hover:scale-110"
-                        />
-                    </div>
-                    <div className="p-4">
-                        <h3 className="text-xl font-semibold text-gray-800 uppercase">Michael Smith</h3>
-                        <p className="text-gray-500 mt-2">Parcels Delivered: <span className="font-bold text-gray-800">110</span></p>
-                        <div className="flex items-center mt-4">
-                            <span className="text-yellow-400 text-lg">★★★★☆</span>
-                        </div>
-                    </div>
-                </div>
-                {/* Card 3 */}
-                <div className="bg-white rounded-lg shadow-md overflow-hidden group">
-                    <div className="overflow-hidden">
-                        <img
-                            src="https://i.ibb.co.com/ngWGY50/istockphoto-1168548978-2048x2048.jpg"
-                            alt="Alex Johnson"
-                            className="w-full h-72 object-cover transform transition-transform duration-300 group-hover:scale-110"
-                        />
-                    </div>
-                    <div className="p-4">
-                        <h3 className="text-xl font-semibold text-gray-800 uppercase">Alex Johnson</h3>
-                        <p className="text-gray-500 mt-2">Parcels Delivered: <span className="font-bold text-gray-800">105</span></p>
-                        <div className="flex items-center mt-4">
-                            <span className="text-yellow-400 text-lg">★★★☆☆</span>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );

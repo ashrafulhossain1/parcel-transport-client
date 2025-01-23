@@ -13,6 +13,14 @@ import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
 import AllParcels from "../Pages/Dashboard/Admin/AllParcels/AllParcels";
 import AllDeliveryMan from "../Pages/Dashboard/Admin/AllDeliveryMan/AllDeliveryMan";
 import AdminRoute from "./AdminRoute";
+import MyDelivery from "../Pages/Dashboard/DeliveryMan/MyDelivery";
+import PrivateRoute from "./PrivateRoute";
+import DeliveryMenRoute from "./DeliveryMenRoute";
+import Payment from "../Pages/Payments/Payment";
+import PaymentSuccess from "../Pages/Payments/PaymentSuccess";
+import MyReviews from "../Pages/Dashboard/DeliveryMan/MyReviews";
+import MyProfile from "../Pages/Shared/MyProfile/MyProfile";
+import UpdateProfile from "../Pages/Auth/UpdateProfile";
 
 
 export const router = createBrowserRouter([
@@ -36,7 +44,7 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             // role admin
             {
@@ -57,21 +65,44 @@ export const router = createBrowserRouter([
             },
             // role  User
             {
-                path: 'my-profile',
-                element: <Profile></Profile>
-            },
-            {
                 path: 'book-parcel',
-                element: <BookParcel></BookParcel>
+                element: <PrivateRoute><BookParcel></BookParcel></PrivateRoute>
             },
             {
                 path: 'update-parcel/:id',
-                element: <UpdateParcel></UpdateParcel>,
+                element: <PrivateRoute><UpdateParcel></UpdateParcel></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/parcels/update/${params.id}`)
             },
             {
                 path: 'my-parcels',
-                element: <MyParcels></MyParcels>
+                element: <PrivateRoute><MyParcels></MyParcels></PrivateRoute>
+            },
+            {
+                path: 'payment/:id',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/payment/${params.id}`)
+            },
+            {
+                path: 'payment-success',
+                element: <PrivateRoute><PaymentSuccess></PaymentSuccess></PrivateRoute>
+            },
+            // for DeliveryMen
+            {
+                path: 'my-delivery-list',
+                element: <DeliveryMenRoute><MyDelivery></MyDelivery></DeliveryMenRoute>
+            },
+            {
+                path: 'my-reviews',
+                element: <DeliveryMenRoute><MyReviews></MyReviews></DeliveryMenRoute>
+            },
+            // for all
+            {
+                path: 'my-profile',
+                element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+            },
+            {
+                path: 'edit-profile',
+                element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
             }
         ]
     }

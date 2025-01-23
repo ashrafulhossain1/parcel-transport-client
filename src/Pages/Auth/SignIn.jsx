@@ -2,9 +2,10 @@ import useAuth from '../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleSignIn from './GoogleSignIn';
 import { TbFidgetSpinner } from 'react-icons/tb';
+import toast from 'react-hot-toast';
 
 const SignIn = () => {
-    const { signIn, loading, } = useAuth()
+    const { signIn, loading, setLoading } = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
     const from = location?.state?.from?.pathname || '/'
@@ -21,6 +22,9 @@ const SignIn = () => {
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true });
+            }).catch(error => {
+                toast.error('please enter valid email and password')
+                setLoading(false)
             })
     }
 

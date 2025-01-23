@@ -1,24 +1,42 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import usePagination from '../../../../hooks/usePagination';
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure()
+
+    const {
+        count,
+        pages,
+        currentPage,
+        numberOfPages,
+        setCurrentPage,
+        handelPrevBtn,
+        handelNextBtn,
+    } = usePagination();
+
+    console.log(count)
+
+
+    // users table data
     const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', currentPage],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/users')
+            const { data } = await axiosSecure.get(`/users?page=${currentPage}&size=5`)
             return data;
         }
     })
 
+
     console.log(users)
+
     // handle role change
     const handleRoleChange = async (userId, newRole) => {
         Swal.fire({
             title: "Are you sure?",
-            text: "You won't be able to go previous role!",
+            text: "You won't be able to previous role!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -34,20 +52,22 @@ const AllUsers = () => {
                             refetch()
                             Swal.fire({
                                 title: "Role Updating!",
-                                text: `Role Update to ${newRole}`,
+                                text: `User Role Update to ${newRole}`,
                                 icon: "success"
                             });
                         }
                     })
+
             }
         });
     }
+
 
     return (
         <div>
             {/* Heading */}
             <div className="mb-4">
-                <h2 className="font-semibold text-purple-600">Total Users: 0</h2>
+                <h2 className="font-semibold text-purple-600">Total Users: {users?.length}</h2>
             </div>
             {/* Table */}
             <div className="overflow-x-auto">
@@ -80,7 +100,7 @@ const AllUsers = () => {
                                     {user.parcelBookedCount || 0}
                                 </td>
                                 <td className="px-4 py-2 border border-purple-300">
-                                    {user.totalSpent || "N/A"}
+                                    {user.parcelCostSum || "0"}
                                 </td>
                                 <td className="px-4 py-2 border border-purple-300">
                                     {user.role === "User" && (
@@ -119,6 +139,45 @@ const AllUsers = () => {
                         ))}
                     </tbody>
                 </table>
+                {/* for pagination page */}
+                <div className="md:flex justify-around items-center">
+                    <div className="text-center my-4 md:my-0">
+                        Showing 1-10 of {count}
+                    </div>
+                    <div className="my-12">
+                        <div className="text-center pagination-div">
+                            <button
+                                className="btn bg-purple-600 text-white"
+                                onClick={handelPrevBtn}
+                                disabled={currentPage === 0}
+                            >
+                                Prev
+                            </button>
+                            {pages.map((page) => (
+                                <button
+                                    className={`btn ${currentPage === page ? "bg-purple-500 text-white" : ""
+                                        }`}
+                                    onClick={() => page !== "..." && setCurrentPage(page)}
+                                    disabled={page === "..."}
+                                    key={page}
+                                >
+                                    {page === "..." ? "..." : page + 1}
+                                </button>
+                            ))}
+                            <button
+                                className="btn bg-purple-800 text-white"
+                                onClick={handelNextBtn}
+                                disabled={currentPage === numberOfPages}
+                            >
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
             </div>
         </div>
 

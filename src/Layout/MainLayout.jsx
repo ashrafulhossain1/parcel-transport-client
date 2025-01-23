@@ -6,13 +6,13 @@ import Footer from '../Pages/Shared/Footer/Footer';
 const MainLayout = () => {
     return (
         <div>
-            <div className='sticky  top-0 left-0 z-40'>
+            <div className='sticky  nav-glass  top-0 left-0 z-40'>
                 <Navbar></Navbar>
             </div>
             <div className='min-h-screen'>
                 <Outlet></Outlet>
             </div>
-            <div>
+            <div className='bg-gradient-to-r from-gray-800  to-gray-800 text-gray-300'>
                 <Footer></Footer>
             </div>
         </div>

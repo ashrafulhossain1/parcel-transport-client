@@ -8,6 +8,7 @@ import { imageUpload } from '../../api/utils';
 
 const SignUp = () => {
     const { loading, createUser, updateProfileData } = useAuth();
+
     const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const location = useLocation()
@@ -23,6 +24,7 @@ const SignUp = () => {
         const email = form.email.value
         const password = form.password.value
         // send image data to Imgbb
+        
         const photoURL = await imageUpload(image)
 
         console.log({ name, number, role, image, email, password, })

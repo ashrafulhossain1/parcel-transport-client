@@ -40,9 +40,21 @@ const UserNav = () => {
                         </NavLink>
                     </li>
                 }
+
                 {/* for Delivery Man */}
-                {/* TODO */}
+                {
+                    role === 'DeliveryMen' &&
+                    <>
+                        <li>
+                            <NavLink to='/dashboard/my-delivery-list' className='bg-gray-700'>
+                                Dashboard
+                            </NavLink>
+                        </li>
+                    </>
+                }
+
                 {/* for Admin */}
+
                 {
                     role === 'Admin' &&
                     <>

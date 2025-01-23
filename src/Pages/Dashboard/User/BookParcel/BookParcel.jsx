@@ -31,7 +31,7 @@ const BookParcel = () => {
         }
 
         const formData = {
-            name: user?.displayName, email: user?.email, phoneNumber, parcelType, parcelWeight, receiverName, receiverPhoneNumber, deliveryAddress, requestedDeliveryDate, latitude, longitude, price, bookingDate: new Date().toLocaleDateString('en-CA')
+            name: user?.displayName, email: user?.email, phoneNumber, parcelType, parcelWeight, receiverName, receiverPhoneNumber, deliveryAddress, requestedDeliveryDate: new Date(requestedDeliveryDate).toISOString(), latitude, longitude, price, bookingDate: new Date().toISOString()
         };
         axiosSecure.post('/parcels', formData)
             .then(res => {
@@ -216,9 +216,19 @@ const BookParcel = () => {
                                 }
                             })}
                         />
+
                         {errors.requestedDeliveryDate && (
                             <p className="text-red-500 text-sm">{errors.requestedDeliveryDate.message}</p>
                         )}
+
+
+                        {/* <input
+                            className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            type="date"
+                            value={fromDate}
+                            onChange={(e) => setFromDate(e.target.value)}
+                        /> */}
+
                     </div>
 
                     {/* Latitude */}

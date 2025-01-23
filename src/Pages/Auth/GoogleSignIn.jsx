@@ -21,7 +21,7 @@ const GoogleSignIn = () => {
                 const userInfo = {
                     name: user?.displayName,
                     email: user?.email,
-                    photo: user?.photoUrl,
+                    photo: user?.photoURL,
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
