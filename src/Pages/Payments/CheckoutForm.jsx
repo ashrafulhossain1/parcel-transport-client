@@ -33,7 +33,7 @@ const CheckoutForm = () => {
 
   const priceNumb = Number(price) || 0;
 
-  console.log(typeof priceNumb);
+  // console.log(typeof priceNumb);
 
   const mutation = useMutation({
     mutationFn: async (data) => {
@@ -82,7 +82,7 @@ const CheckoutForm = () => {
       console.error(error);
       setErr(error.message);
     } else {
-      console.log("payment Method", paymentMethod);
+      // console.log("payment Method", paymentMethod);
       setErr("");
     }
 
@@ -101,9 +101,9 @@ const CheckoutForm = () => {
     );
 
     if (confirmError) {
-      console.log(confirmError);
+      // console.log(confirmError);
     } else {
-      console.log("payment Intent", paymentIntent);
+      // console.log("payment Intent", paymentIntent);
 
       if (paymentIntent.status === "succeeded") {
         setInvoiceId(paymentIntent.id);
@@ -122,7 +122,7 @@ const CheckoutForm = () => {
           .then(res => {
             navigate("/dashboard/payment-success");
           }).catch(err => {
-            console.log('stripe Wrong', err)
+            // console.log('stripe Wrong', err)
           })
           
       }

@@ -13,7 +13,7 @@ const TopDeliveryMen = () => {
         }
     });
 
-    console.log(topDelivery)
+    // console.log(topDelivery)
     return (
         <div className="bg-green-100/50 py-6 md:py-12">
             <div className="max-w-7xl mx-auto text-center mb-12">

@@ -9,10 +9,10 @@ const UserNav = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-                console.log('successfully Logout')
+                // console.log('successfully Logout')
             })
             .catch(error => {
-                console.log('Error by Logout ', error)
+                // console.log('Error by Logout ', error)
             })
     }
 

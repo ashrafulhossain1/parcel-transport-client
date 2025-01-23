@@ -42,12 +42,12 @@ const MyParcelRow = ({ parcel, inx, refetch }) => {
             .then(res => {
                 if (res.data.modifiedCount) {
                     toast.success('Your parcel returned successfully')
-                    console.log(res.data)
+                    // console.log(res.data)
                     refetch()
                 }
             })
             .catch(error => {
-                console.log('status update error', error)
+                // console.log('status update error', error)
             })
     }
 
@@ -69,7 +69,7 @@ const MyParcelRow = ({ parcel, inx, refetch }) => {
 
         axiosSecure.post('/reviews', reviewData)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.result.insertedId) {
                     refetch()
                     Swal.fire({
@@ -84,7 +84,7 @@ const MyParcelRow = ({ parcel, inx, refetch }) => {
                     setModalOpen(false);
                 }
             }).catch(err => {
-                console.log('review error', err);
+                // console.log('review error', err);
                 toast.error('Failed to submit review. Please try again.', {
                     position: "top-right",
                     autoClose: 5000,

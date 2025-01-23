@@ -12,17 +12,17 @@ const HomeStats = () => {
 
     useEffect(() => {
         // tutorCount API call using axios
-        axios.get('http://localhost:5000/deliveredCount')
+        axios.get('https://parcel-transport-server.vercel.app/deliveredCount')
             .then(response => setDeliveredCount(response.data.deliveredCount))
             .catch(error => console.error('Error fetching tutor count:', error));
 
         // usersCount API call using axios
-        axios.get('http://localhost:5000/userCount')
+        axios.get('https://parcel-transport-server.vercel.app/userCount')
             .then(response => setUsersCount(response.data.userCount))
             .catch(error => console.error('Error fetching users count:', error));
 
         // reviewsCount API call using axios
-        axios.get('http://localhost:5000/bookedCount')
+        axios.get('https://parcel-transport-server.vercel.app/bookedCount')
             .then(response => setBookedCount(response.data.bookedCount))
             .catch(error => console.error('Error fetching reviews count:', error));
     }, []);
