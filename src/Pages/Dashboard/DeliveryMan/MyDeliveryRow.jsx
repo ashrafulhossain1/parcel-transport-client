@@ -17,12 +17,12 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
         // console.log(parcelId)
         Swal.fire({
             title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            text: "You won't be able undo this Cancelled",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, Cancel it!"
         }).then((result) => {
             if (result.isConfirmed) {
 
@@ -51,8 +51,8 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
                 if (res.data.modifiedCount > 0) {
                     refetch()
                     Swal.fire({
-                        title: "Deleted!",
-                        text: "Your file has been deleted.",
+                        title: "Delivered!",
+                        text: "This Parcel is now delivered",
                         icon: "success"
                     });
                 }
@@ -63,7 +63,6 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
     };
 
     const handleDelete = async (parcelId) => {
-        // console.log('id........', parcelId)
         try {
             const { data } = await axiosSecure.patch(`/parcels/removeAssign/${parcelId}`)
             // console.log(data);

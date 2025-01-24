@@ -1,8 +1,77 @@
-# React + Vite
+# Parcel Transportation Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Website
+[Parcel Transportation Client Site](https://parcel-transpotation.web.app/)
 
-Currently, two official plugins are available:
+## Admin Credentials
+- **Email**: arif@jaman.com
+- **Password**: A123456Aa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Delivery Man Credentials
+- **Email**: Alexander@gmail.com
+- **Password**: D123456Aa
+
+## GitHub Repositories
+- [Client Side Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-ashrafulhossain1)
+- [Server Side Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-ashrafulhossain1)
+
+## Project Overview
+The Parcel Transportation web application is designed to simplify the process of parcel management, delivery, and tracking. It includes user-friendly features for admins, delivery personnel, and customers.
+
+### Features
+- **Admin Dashboard**:
+  - Manage users, parcels, and delivery statuses.
+  - Secure authentication system.
+
+- **Delivery Personnel Dashboard**:
+  - View assigned parcels.
+  - Update delivery status.
+
+- **Customer Features**:
+  - Track parcels in real time.
+  - View parcel delivery history.
+
+### Technologies Used
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: Firebase
+- **Hosting**: Firebase
+
+### Installation Guide
+1. Clone the repositories:
+   - Client: `git clone https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-ashrafulhossain1`
+   - Server: `git clone https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-ashrafulhossain1`
+
+2. Navigate to each project folder and install dependencies:
+   ```bash
+   cd client
+   npm install
+   
+   cd ../server
+   npm install
+   ```
+
+3. Configure environment variables for the server:
+   - Create a `.env` file in the `server` directory.
+   - Add the necessary variables (e.g., database URI, Firebase credentials).
+
+4. Run the applications:
+   - Start the client: `npm run dev` (inside the client directory).
+   - Start the server: `npm start` (inside the server directory).
+
+5. Access the application locally:
+   - Client: `http://localhost:3000`
+   - Server: `http://localhost:5000`
+
+### How to Use
+1. Log in using the provided credentials.
+2. Admins can manage parcels and users through the dashboard.
+3. Delivery personnel can view and update assigned deliveries.
+4. Customers can track their parcels in real time.
+
+### Contributions
+Feel free to contribute by submitting issues or pull requests in the respective repositories.
+
+### License
+This project is licensed under the MIT License.

@@ -23,7 +23,7 @@ const MyDelivery = () => {
     }
 
     if (isError) {
-        return <div>Error fetching data</div>;
+        return <div className='text-red-500'>Error fetching data</div>;
     }
 
 

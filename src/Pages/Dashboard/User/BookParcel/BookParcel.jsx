@@ -5,12 +5,11 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 const BookParcel = () => {
     const { user } = useAuth();
     const [price, setPrice] = useState(0);
-    const [parcelWeight, SetParcelWeight] = useState(0)
+    const [parcelWeight, setParcelWeight] = useState(0)
     const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -44,7 +43,7 @@ const BookParcel = () => {
     };
 
     const handleWeightChange = (e) => {
-        const weight = parseFloat(e.target.value);
+        const weight = parseInt(e.target.value);
 
         if (weight < 0) {
             return toast.error("Weight must be a positive number");
@@ -58,7 +57,7 @@ const BookParcel = () => {
             else if (weight > 1 && weight <= 2) calculatedPrice = 100;
             else if (weight > 2) calculatedPrice = 150;
 
-            SetParcelWeight(weight)
+            setParcelWeight(weight)
             setPrice(calculatedPrice);
             setValue("price", `${calculatedPrice} Tk`);
         }
@@ -71,9 +70,6 @@ const BookParcel = () => {
 
     return (
         <div className=" mx-auto mt-10 p-5 border rounded shadow-lg">
-            <Helmet>
-                <title>Book A Parcel | Dashboard</title>
-            </Helmet>
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
                 Book a Parcel
             </h2>
@@ -146,6 +142,7 @@ const BookParcel = () => {
                             placeholder="Enter parcel weight"
                             className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             onChange={handleWeightChange}
+                            required
                         />
                     </div>
 

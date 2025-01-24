@@ -8,36 +8,30 @@ import toast from 'react-hot-toast';
 
 const UpdateParcel = () => {
    const singleParcel = useLoaderData()
-   // console.log(singleParcel)
+   console.log(singleParcel)
 
    const { id } = useParams()
    // console.log('from url id is', id)
 
 
    const { user } = useAuth();
-   const [price, setPrice] = useState(0);
-   const [parcelWeight, SetParcelWeight] = useState(singleParcel.parcelWeight)
+   const [price, setPrice] = useState(singleParcel?.price);
+   const [parcelWeight, setParcelWeight] = useState(singleParcel?.parcelWeight)
    const axiosSecure = useAxiosSecure()
    const navigate = useNavigate()
 
    const {
       _id,
-      name,
-      email,
       phoneNumber,
       parcelType,
       parcelWeight: oldParcelWeight,
       receiverName,
       receiverPhoneNumber,
       deliveryAddress,
-      requestedDeliveryDate,
+      requestedDeliveryDate:oldReqDate,
       latitude,
       longitude,
       price: oldPrice,
-      bookingDate,
-      approximateDeliveryDate,
-      deliveryManId,
-      bookingStatus
    } = singleParcel;
 
 
@@ -59,7 +53,7 @@ const UpdateParcel = () => {
 
 
       const updateFormData = {
-         phoneNumber, parcelType, parcelWeight, receiverName, receiverPhoneNumber, deliveryAddress, requestedDeliveryDate, latitude, longitude, price
+         phoneNumber, parcelType, parcelWeight, receiverName, receiverPhoneNumber, deliveryAddress, requestedDeliveryDate: new Date(requestedDeliveryDate).toISOString(), latitude, longitude, price
       };
 
       axiosSecure.patch(`/parcels/update/${id}`, updateFormData)
@@ -74,7 +68,7 @@ const UpdateParcel = () => {
    };
 
    const handleWeightChange = (e) => {
-      const weight = parseFloat(e.target.value);
+      const weight = parseInt(e.target.value);
 
       if (weight < 0) {
          return toast.error("Weight must be a positive number");
@@ -87,7 +81,7 @@ const UpdateParcel = () => {
          else if (weight > 1 && weight <= 2) calculatedPrice = 100;
          else if (weight > 2) calculatedPrice = 150;
 
-         SetParcelWeight(weight)
+         setParcelWeight(weight)
          setPrice(calculatedPrice);
          setValue("price", `${calculatedPrice} Tk`);
       }
@@ -172,6 +166,7 @@ const UpdateParcel = () => {
                   <label className=" font-medium text-sm sm:text-base">Parcel Weight (kg)</label>
                   <input
                      defaultValue={oldParcelWeight}
+                     step="any"
                      type="number"
                      placeholder="Enter parcel weight"
                      className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -245,7 +240,7 @@ const UpdateParcel = () => {
                <div>
                   <label className=" font-medium text-sm sm:text-base">Requested Delivery Date</label>
                   <input
-                     defaultValue={requestedDeliveryDate}
+                     defaultValue={oldReqDate.split('T')[0]}
                      type="date"
                      className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
                      {...register("requestedDeliveryDate", {

@@ -38,17 +38,53 @@ const MyParcelRow = ({ parcel, inx, refetch }) => {
     } = parcel;
 
     const handleCancel = (id) => {
-        axiosSecure.patch(`/parcels/returned/${id}`)
-            .then(res => {
-                if (res.data.modifiedCount) {
-                    toast.success('Your parcel returned successfully')
-                    // console.log(res.data)
-                    refetch()
-                }
-            })
-            .catch(error => {
-                // console.log('status update error', error)
-            })
+
+
+        Swal.fire({
+            title: "Are you sure for return this parcel?",
+            text: "You can't undo it.!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Return"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.patch(`/parcels/returned/${id}`)
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Returned!",
+                                text: "Your Returning Action Success",
+                                icon: "success"
+                            });
+                            // console.log(res.data)
+                        }
+                    })
+                    .catch(error => {
+                        // console.log('status update error', error)
+                    })
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     // const paymentStatus = 'pai'
