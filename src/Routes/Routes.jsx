@@ -4,7 +4,6 @@ import Home from "../Pages/Home/Home/Home";
 import SignUp from "../Pages/Auth/SignUp";
 import SignIn from "../Pages/Auth/SignIn";
 import Dashboard from "../Layout/Dashboard";
-import Profile from "../Pages/Dashboard/User/Profile/Profile";
 import BookParcel from "../Pages/Dashboard/User/BookParcel/BookParcel";
 import MyParcels from "../Pages/Dashboard/User/MyParcels/MyParcels";
 import UpdateParcel from "../Pages/Dashboard/User/UpdateParcel/UpdateParcel";
@@ -49,7 +48,7 @@ export const router = createBrowserRouter([
             // role admin
             {
                 index: true,
-                element: <AdminStats></AdminStats>
+                element: <PrivateRoute><AdminStats></AdminStats></PrivateRoute>
             },
             {
                 path: 'all-parcels',
@@ -71,7 +70,7 @@ export const router = createBrowserRouter([
             {
                 path: 'update-parcel/:id',
                 element: <PrivateRoute><UpdateParcel></UpdateParcel></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://parcel-transport-server.vercel.app/parcels/update/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/parcels/update/${params.id}`)
             },
             {
                 path: 'my-parcels',
@@ -80,7 +79,7 @@ export const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://parcel-transport-server.vercel.app/payment/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/payment/${params.id}`)
             },
             {
                 path: 'payment-success',

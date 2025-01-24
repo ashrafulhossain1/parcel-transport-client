@@ -11,7 +11,7 @@ const UpdateProfile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted');
+        // console.log('Form submitted');
 
         const form = e.target;
         const name = form.name.value || user?.displayName;
@@ -32,7 +32,7 @@ const UpdateProfile = () => {
         // Update user profile
         updateProfileData(name, photoURL)
             .then(() => {
-                console.log('Profile updated successfully');
+                // console.log('Profile updated successfully');
 
                 // Update database with new profile data
                 axiosPublic.patch(`/user/profileUpdate/${user?.email}`, { name, photoURL })

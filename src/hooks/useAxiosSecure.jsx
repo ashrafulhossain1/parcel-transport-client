@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-    baseURL: 'https://parcel-transport-server.vercel.app'
+    baseURL: 'http://localhost:5000'
 })
 
 const useAxiosSecure = () => {
@@ -27,13 +27,13 @@ const useAxiosSecure = () => {
     }, async function (error) {
         // here some option
         const status = error?.response?.status
-        console.log(status)
+        // console.log(status)
         
         if (status === 401 || status === 403) {
             await logOut()
             navigate('/signIn')
         }
-        console.log("status error INTERCEPTOR", status)
+        // console.log("status error INTERCEPTOR", status)
         return Promise.reject(error)
     })
 

@@ -40,7 +40,7 @@ const MyParcels = () => {
             <option value='On the way'>On the way</option>
             <option value='delivered'>Delivered</option>
             <option value='returned'>returned</option>
-            <option value='canceled'>canceled </option>
+            <option value='cancelled'>cancelled </option>
           </select>
         </div>
       </div>

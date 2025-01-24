@@ -14,7 +14,7 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleCancel = (parcelId) => {
-        console.log(parcelId)
+        // console.log(parcelId)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -26,7 +26,7 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.patch(`/parcels/bookingStatus/${parcelId}`, { bookingStatus: 'canceled' })
+                axiosSecure.patch(`/parcels/bookingStatus/${parcelId}`, { bookingStatus: 'cancelled' })
                     .then(res => {
                         if (res.data.modifiedCount > 0) {
                             refetch()
@@ -38,7 +38,7 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
                         }
 
                     }).catch(error => {
-                        console.log(error)
+                        // console.log(error)
                     })
             }
         });
@@ -58,22 +58,22 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
                 }
 
             }).catch(error => {
-                console.log(error)
+                // console.log(error)
             })
     };
 
     const handleDelete = async (parcelId) => {
-        console.log('id........', parcelId)
+        // console.log('id........', parcelId)
         try {
             const { data } = await axiosSecure.patch(`/parcels/removeAssign/${parcelId}`)
-            console.log(data);
+            // console.log(data);
             if (data.modifiedCount > 0) {
                 toast.success('successfully deleted from the list')
                 refetch()
             }
         }
         catch (error) {
-            console.log('Remove from assign error', error)
+            // console.log('Remove from assign error', error)
         }
     }
 
@@ -82,11 +82,11 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
 
     const handleShowMap = (latitude, longitude) => {
         setSelectedLocation({ latitude, longitude });
-        console.log(latitude, longitude)
+        // console.log(latitude, longitude)
         setIsModalOpen(true);
     }
 
-    console.log(isModalOpen)
+    // console.log(isModalOpen)
 
     const closeModal = () => {
         setIsModalOpen(false);
@@ -104,7 +104,7 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
                 <td className='px-4 py-2 border-b'>{parcel.deliveryAddress}</td>
                 <td className='px-4 py-2 border-b flex gap-2'>
 
-                    {/* on the way => cancel, canceled=> delete button, then if delete=> go again pending list and remove from myDelivery */}
+                    {/* on the way => cancel, cancelled=> delete button, then if delete=> go again pending list and remove from myDelivery */}
                     {
                         parcel?.bookingStatus === 'on the way' ?
                             <>
@@ -116,7 +116,7 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
                                 </button>
                             </> :
                             <>
-                                {parcel?.bookingStatus === 'canceled' ?
+                                {parcel?.bookingStatus === 'cancelled' ?
                                     <>
                                         {/* if click delete:  TO Do: parcel collection to remove DeliveryManId 
                                 OR: status patch tto again pending set
@@ -133,7 +133,7 @@ const MyDeliveryRow = ({ parcel, refetch }) => {
                                         <button
                                             className='bg-gray-700 bg-opacity-35 text-white cursor-not-allowed py-1 px-3 rounded mr-2'
                                         >
-                                            Canceled
+                                            cancelled
                                         </button>
 
 

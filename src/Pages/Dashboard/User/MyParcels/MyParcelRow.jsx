@@ -168,7 +168,7 @@ const MyParcelRow = ({ parcel, inx, refetch }) => {
                     )}
 
                     {/* Payment Button */}
-                    {bookingStatus === 'canceled' || bookingStatus === 'returned' || parcel?.paymentStatus === 'paid' ? (
+                    {bookingStatus === 'cancelled' || bookingStatus === 'returned' || parcel?.paymentStatus === 'paid' ? (
                         <div className="relative group cursor-not-allowed">
                             <button
                                 className={`p-2 rounded-md bg-gray-400 font-medium text-[8px] border space-x-0 flex flex-col items-center ${parcel?.paymentStatus === 'paid' && "bg-green-800 cursor-not-allowed"}`}

@@ -16,7 +16,7 @@ const Dashboard = () => {
     };
 
     if (isLoading) {
-        console.log(isLoading)
+        // console.log(isLoading)
         return <h1 className='text-5xl'>Loading.................................</h1>;
     }
 
@@ -159,7 +159,7 @@ const Dashboard = () => {
                     Welcome, {user?.displayName}{' '}
                     <span className='text-purple-600'>{(role) || 'N/A'}</span>
                 </h2>
-                <div className='py-10'>
+                <div className='py-4'>
                     <Outlet />
                 </div>
             </div>

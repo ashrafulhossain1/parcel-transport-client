@@ -16,11 +16,11 @@ const SignIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(password)
+        // console.log(password)
 
         signIn(email, password)
             .then(result => {
-                const user = result.user;
+                toast.success("Welcome Your login Successfully");
                 navigate(from, { replace: true });
             }).catch(error => {
                 toast.error('please enter valid email and password')

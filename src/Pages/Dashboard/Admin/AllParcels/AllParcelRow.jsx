@@ -33,10 +33,10 @@ const AllParcelRow = ({ parcel, index, deliveryMans, refetch }) => {
             deliveryManId: selectedDeliveryMan
         }
 
-        console.log(assignInfo)
+        // console.log(assignInfo)
         try {
             const { data } = await axiosSecure.patch(`/parcels/assign/${parcel._id}`, assignInfo)
-            console.log(data);
+            // console.log(data);
             if (data.modifiedCount > 0) {
                 refetch()
                 Swal.fire({
@@ -47,13 +47,11 @@ const AllParcelRow = ({ parcel, index, deliveryMans, refetch }) => {
             }
         }
         catch (error) {
-            console.log('assign error', error)
+            // console.log('assign error', error)
         }
         finally {
             setModalOpen(false)
         }
-
-
     };
   
     
@@ -102,7 +100,7 @@ const AllParcelRow = ({ parcel, index, deliveryMans, refetch }) => {
                             </button>
                         </> :
                         <>
-                            {parcel.bookingStatus === 'on the way' ?
+                            {parcel.bookingStatus === 'on the way' || parcel.bookingStatus === 'cancelled' ?
                                 <>
                                     <button
                                         className="btn btn-sm text-xs bg-yellow-600 hover:bg-yellow-700 text-white"
@@ -114,7 +112,7 @@ const AllParcelRow = ({ parcel, index, deliveryMans, refetch }) => {
                                 :
                                 <>
                                     {
-                                        parcel.bookingStatus === 'returned' || parcel.bookingStatus === 'canceled' || parcel.bookingStatus === 'delivered' ?
+                                        parcel.bookingStatus === 'returned' || parcel.bookingStatus === 'delivered' ?
                                             <>
                                                 <button
                                                     className="btn text-xs btn-sm cursor-not-allowed bg-gray-600 text-white hover:bg-gray-700"

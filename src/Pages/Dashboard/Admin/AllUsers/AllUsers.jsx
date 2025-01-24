@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import usePagination from '../../../../hooks/usePagination';
+import axios from 'axios';
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure()
-
+    const [usersCount, setUsersCount] = useState(0);
     const {
         count,
         pages,
@@ -17,7 +18,7 @@ const AllUsers = () => {
         handelNextBtn,
     } = usePagination();
 
-    console.log(count)
+    // console.log(count)
 
 
     // users table data
@@ -29,8 +30,15 @@ const AllUsers = () => {
         }
     })
 
+    useEffect(() => {
+        // usersCount API call using axios
+        axios.get('http://localhost:5000/userCount')
+            .then(response => setUsersCount(response.data.userCount))
+            .catch(error => console.error('Error fetching users count:', error));
+    }, [])
 
-    console.log(users)
+
+    // console.log(users)
 
     // handle role change
     const handleRoleChange = async (userId, newRole) => {
@@ -47,7 +55,7 @@ const AllUsers = () => {
 
                 axiosSecure.patch(`/users/${userId}`, { newRole })
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data.modifiedCount > 0) {
                             refetch()
                             Swal.fire({
@@ -67,7 +75,7 @@ const AllUsers = () => {
         <div>
             {/* Heading */}
             <div className="mb-4">
-                <h2 className="font-semibold text-purple-600">Total Users: {users?.length}</h2>
+                <h2 className="font-semibold text-purple-600">Total Users: {usersCount}</h2>
             </div>
             {/* Table */}
             <div className="overflow-x-auto">

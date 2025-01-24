@@ -7,7 +7,7 @@ import { FcGoogle } from 'react-icons/fc';
 const GoogleSignIn = () => {
     const { googleLogin } = useAuth()
     const location = useLocation()
-    console.log(location)
+    // console.log(location)
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
     const axiosPublic = useAxiosPublic()
@@ -25,7 +25,7 @@ const GoogleSignIn = () => {
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         navigate(from, { replace: true });
                     })
                     .catch(err => {
@@ -33,7 +33,7 @@ const GoogleSignIn = () => {
                     });
             })
             .catch(error => {
-                console.log('google SignIn error', error)
+                // console.log('google SignIn error', error)
             })
     }
 

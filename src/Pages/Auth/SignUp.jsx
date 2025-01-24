@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import GoogleSignIn from './GoogleSignIn';
 import { TbFidgetSpinner } from 'react-icons/tb';
 import { imageUpload } from '../../api/utils';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
     const { loading, createUser, updateProfileData } = useAuth();
@@ -23,12 +24,20 @@ const SignUp = () => {
         const image = form.image.files[0]
         const email = form.email.value
         const password = form.password.value
-        // send image data to Imgbb
-        
+
         const photoURL = await imageUpload(image)
 
-        console.log({ name, number, role, image, email, password, })
-        console.log(photoURL)
+
+        if (!/[A-Z]/.test(password)) {
+            return toast.error('Must have an Uppercase letter in the password!')
+        }
+        if (!/[a-z]/.test(password)) {
+            return toast.error("Must have a Lowercase letter in the password");
+        }
+        if (password.length < 6) {
+            return toast.error("Length must be at least 6 character");
+        }
+
 
         createUser(email, password)
             .then((result) => {
@@ -36,7 +45,6 @@ const SignUp = () => {
 
                 updateProfileData(name, photoURL)
                     .then(() => {
-                        console.log('updated SUccessfully')
 
                         //++++++ add in db new userData
                         const userInfo = {
@@ -48,7 +56,7 @@ const SignUp = () => {
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
-                                console.log(res.data)
+                                toast.success("Welcome Your Registration Successfully");
                                 navigate(from, { replace: true });
                             })
                             .catch(err => {
@@ -57,12 +65,12 @@ const SignUp = () => {
 
 
                     }).catch((error) => {
-                        console.log("update Error", error)
+                        // console.log("update Error", error)
                     })
 
             })
             .catch(error => {
-                console.log("logged In error", error)
+                toast.error('Something wrong ,please try to signup using another email')
             })
 
 

@@ -137,6 +137,7 @@ const BookParcel = () => {
                     <div>
                         <label className=" font-medium text-sm sm:text-base">Parcel Weight (kg)</label>
                         <input
+                            step="any"
                             type="number"
                             placeholder="Enter parcel weight"
                             className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
