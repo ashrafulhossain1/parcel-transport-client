@@ -17,10 +17,10 @@ const Banner = () => {
                 <div className="hero-overlay bg-opacity-60 bg-black"></div>
                 <div className="hero-content text-neutral-content text-center w-[70%] mx-auto">
                     <div className="flex flex-col items-center">
-                        <h1 className="mb-5 text-5xl font-bold">
+                        <h1 className="mb-5 text-2xl md:text-4xl xl:text-5xl font-bold">
                             Reliable Parcel Transport Services
                         </h1>
-                        <p className="mb-5 text-lg">
+                        <p className="mb-5 text-md md:text-lg">
                             Deliver your packages quickly and securely to any destination. We provide the fastest, most
                             reliable parcel transportation services to meet your needs.
                         </p>

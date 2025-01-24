@@ -17,7 +17,7 @@ const Dashboard = () => {
 
     if (isLoading) {
         // console.log(isLoading)
-        return <h1 className='text-5xl'>Loading.................................</h1>;
+        return <span className="loading loading-bars loading-lg"></span>
     }
 
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 
 const AllDeliveryMan = () => {
    const axiosSecure = useAxiosSecure();
@@ -14,7 +15,7 @@ const AllDeliveryMan = () => {
    });
 
    if (isLoading) {
-      return <div>Loading...</div>;
+      return <span className="loading loading-bars loading-lg"></span>
    }
 
    if (isError) {
@@ -23,6 +24,9 @@ const AllDeliveryMan = () => {
 
    return (
       <div className="overflow-x-auto">
+         <Helmet>
+            <title>All Delivery Men | Dashboard</title>
+         </Helmet>
          <h2 className='text-2xl border-b-2 font-semibold uppercase py-4 md:py-6 text-center mb-4'>All Delivery Men</h2>
 
          <table className='min-w-full bg-white border border-gray-300'>

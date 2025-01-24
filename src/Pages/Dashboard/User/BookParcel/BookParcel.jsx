@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const BookParcel = () => {
     const { user } = useAuth();
@@ -70,6 +71,9 @@ const BookParcel = () => {
 
     return (
         <div className=" mx-auto mt-10 p-5 border rounded shadow-lg">
+            <Helmet>
+                <title>Book A Parcel | Dashboard</title>
+            </Helmet>
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
                 Book a Parcel
             </h2>

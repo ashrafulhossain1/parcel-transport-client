@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const MyReviews = () => {
     const { user, loading } = useAuth();
@@ -28,6 +29,9 @@ const MyReviews = () => {
 
     return (
         <div className="container mx-auto p-4">
+            <Helmet>
+                <title>My Reviews | Delivery Men</title>
+            </Helmet>
             <h3 className="text-2xl font-semibold mb-6 text-center border-b-2 py-2">My Reviews: {reviews.length}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                 {reviews.map((review) => (

@@ -29,13 +29,13 @@ const HomeStats = () => {
 
 
     return (
-        <div className="bg-orange-500/5 dark:bg-gray-900 py-10">
+        <div className="bg-orange-500/5 dark:bg-gray-900 py-10 ">
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-white mb-10">
                     Our Achievements
                 </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center max-w-screen-xl mx-auto">
                     {/* Card 1 */}
                     <Fade duration={1000} direction="left">
                         <div className="border bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-transform duration-300 transform hover:scale-105 py-6 px-4 rounded-xl">

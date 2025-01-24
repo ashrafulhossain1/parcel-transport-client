@@ -3,6 +3,7 @@ import useAuth from '../../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import MyDeliveryRow from './MyDeliveryRow';
+import { Helmet } from 'react-helmet-async';
 
 const MyDelivery = () => {
     const { user, loading } = useAuth();
@@ -18,7 +19,7 @@ const MyDelivery = () => {
     });
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <span className="loading loading-bars loading-lg"></span>
     }
 
     if (isError) {
@@ -29,6 +30,9 @@ const MyDelivery = () => {
 
     return (
         <div className="overflow-x-auto">
+            <Helmet>
+                <title>My Delivery | Delivery Men </title>
+            </Helmet>
             <h2 className='text-2xl border-b-2 text-center mb-4'>My Deliveries</h2>
 
             <table className='min-w-full bg-white border border-gray-300'>

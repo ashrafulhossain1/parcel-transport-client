@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import usePagination from '../../../../hooks/usePagination';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure()
@@ -73,6 +74,9 @@ const AllUsers = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All Users | Dashboard</title>
+            </Helmet>
             {/* Heading */}
             <div className="mb-4">
                 <h2 className="font-semibold text-purple-600">Total Users: {usersCount}</h2>

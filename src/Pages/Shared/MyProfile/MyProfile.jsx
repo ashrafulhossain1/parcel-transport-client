@@ -4,6 +4,7 @@ import useRole from "../../../hooks/useRole";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyProfile = () => {
     const { user, loading } = useAuth();
@@ -19,7 +20,7 @@ const MyProfile = () => {
     });
 
     if (loading || isLoading) {
-        return <div className="text-center py-10">Loading...</div>;
+        return <span className="loading loading-bars loading-lg"></span>
     }
 
     // Conditional descriptions based on role
@@ -38,6 +39,9 @@ const MyProfile = () => {
     return (
         <div className="w-full md:w-1/2 p-4 bg-gradient-to-br from-gray-50 via-purple-50 to-gray-100 shadow-2xl rounded-lg mt-4">
             {/* Profile Header */}
+            <Helmet>
+                <title>Profile | TransportPro</title>
+            </Helmet>
             <div className="flex items-center gap-6 p-5 bg-gradient-to-r from-purple-100 to-gray-100 rounded-lg shadow-lg">
                 <img
                     src={user?.photoURL || "https://via.placeholder.com/150"}

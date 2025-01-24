@@ -3,6 +3,7 @@ import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import MyParcelRow from "./MyParcelRow";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const MyParcels = () => {
   const { user, loading } = useAuth();
@@ -23,10 +24,13 @@ const MyParcels = () => {
   console.log(myParcels)
 
   if (myParcelLoading) {
-    return <h4>amiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h4>
+    return <span className="loading loading-bars loading-lg"></span>
   }
   return (
     <div className="p-1 md:p-4 lg:p-6  ">
+      <Helmet>
+        <title>My Parcels | Dashboard</title>
+      </Helmet>
       <div className="flex justify-between md:items-center flex-col md:flex-row">
         <h1 className="text-2xl font-bold mb-4 text-center">Total Parcel: {myParcels?.length}</h1>
         <div className="text-base md:text-xl font-bold mb-4 text-center">

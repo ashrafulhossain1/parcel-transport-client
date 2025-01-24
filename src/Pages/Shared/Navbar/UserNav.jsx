@@ -27,15 +27,17 @@ const UserNav = () => {
             </div>
             <ul
                 tabIndex={0}
-                className="menu menu-sm gap-2 dropdown-content bg-gray-500  rounded-box z-[1] mt-3 p-2 shadow">
+                className="menu menu-sm gap-2 dropdown-content bg-black/50 backdrop-blur-lg  rounded-box z-[1] mt-3 p-2 shadow">
                 <li>
-                    <button className="bg-gray-700" disabled={true}>{user?.displayName}</button>
+                    <button 
+                    className="bg-black/5 whitespace-nowrap hover:bg-gray-900" disabled={true}>{user?.displayName}</button>
                 </li>
                 {/* for user */}
                 {role === 'User' &&
 
                     <li>
-                        <NavLink to='/dashboard/my-profile' className='bg-gray-700'>
+                        <NavLink to='/dashboard/my-profile' 
+                        className='bg-black/5 whitespace-nowrap hover:bg-gray-900'>
                             Dashboard
                         </NavLink>
                     </li>
@@ -46,7 +48,7 @@ const UserNav = () => {
                     role === 'DeliveryMen' &&
                     <>
                         <li>
-                            <NavLink to='/dashboard/my-delivery-list' className='bg-gray-700'>
+                            <NavLink to='/dashboard/my-delivery-list' className='bg-black/5 whitespace-nowrap hover:bg-gray-800'>
                                 Dashboard
                             </NavLink>
                         </li>
@@ -59,14 +61,14 @@ const UserNav = () => {
                     role === 'Admin' &&
                     <>
                         <li>
-                            <NavLink to='/dashboard' className='bg-gray-700'>
+                            <NavLink to='/dashboard' className='bg-black/5 whitespace-nowrap hover:bg-gray-900'>
                                 Dashboard
                             </NavLink>
                         </li>
                     </>
                 }
                 <li>
-                    <button onClick={handleLogout} className="bg-gray-700">
+                    <button onClick={handleLogout} className="bg-black/5 whitespace-nowrap hover:bg-gray-900">
                         Log Out
                     </button>
                 </li>

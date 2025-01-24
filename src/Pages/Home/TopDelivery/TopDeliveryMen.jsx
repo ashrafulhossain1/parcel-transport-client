@@ -15,14 +15,14 @@ const TopDeliveryMen = () => {
 
     // console.log(topDelivery)
     return (
-        <div className="bg-green-100/50 py-6 md:py-12">
+        <div className="bg-gray-100 py-6 md:py-12">
             <div className="max-w-7xl mx-auto text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-800">Top Delivery Men</h2>
+                <h2 className="text-xl md:text-3xl font-bold text-gray-800">Top Delivery Men</h2>
                 <p className="text-gray-600 mt-4">
                     Recognizing our best-performing delivery professionals for their exceptional service.
                 </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-screen-xl mx-auto">
                 {topDelivery.map(man => (
                     <div key={man.id} className="bg-white rounded-lg shadow-md overflow-hidden group">
                         <div className="overflow-hidden">

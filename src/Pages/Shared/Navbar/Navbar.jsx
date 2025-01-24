@@ -1,6 +1,6 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
-import logo from '../../../assets/logo.jpg'
+import logo from '../../../assets/logo.png'
 import { MdOutlineNotificationsActive } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 import UserNav from './UserNav';
@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="navbar container mx-auto   text-white shadow-lg">
             <div className="flex-1">
                 <Link className="btn btn-ghost text-xl p-0">
-                    <img className="w-8" src={logo} alt="" />
+                    <img className="w-8 md:w-10" src={logo} alt="" />
                     TransportPro
                 </Link>
             </div>

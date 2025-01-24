@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import AllParcelRow from './AllParcelRow';
+import { Helmet } from 'react-helmet-async';
 
 const AllParcels = () => {
     const axiosSecure = useAxiosSecure()
@@ -26,6 +27,9 @@ const AllParcels = () => {
 
     return (
         <div className="p-1 md:p-4 lg:p-6  text-black">
+            <Helmet>
+                <title>All Parcels | Dashboard</title>
+            </Helmet>
             <div>
                 <h1 className="text-2xl font-bold mb-4 text-center">All Parcels</h1>
             </div>

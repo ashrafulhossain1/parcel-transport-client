@@ -2,10 +2,14 @@ import React from 'react';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const MainLayout = () => {
     return (
         <div>
+            <Helmet>
+                <title>TransportPro | Home</title>
+            </Helmet>
             <div className='sticky  nav-glass  top-0 left-0 z-40'>
                 <Navbar></Navbar>
             </div>
