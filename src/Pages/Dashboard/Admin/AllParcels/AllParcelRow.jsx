@@ -59,7 +59,7 @@ const AllParcelRow = ({ parcel, index, deliveryMans, refetch }) => {
     // axios.get(`/singleParcel/`) 
 
     return (
-        <tr key={parcel._id} className="hover:bg-gray-100">
+        <tr key={parcel._id} className="hover:bg-purple-100">
             <td className="border text-xs md:text-base border-gray-300 dark:border-gray-600 px-2 md:px-4 py-2 text-center">
                 {index + 1}
             </td>
