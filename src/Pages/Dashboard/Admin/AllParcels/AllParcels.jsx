@@ -8,16 +8,16 @@ import toast from 'react-hot-toast';
 
 const AllParcels = () => {
     const axiosSecure = useAxiosSecure()
-    const axiosPublic = useAxiosPublic()
     const [toDate, setToDate] = useState('')
     const [fromDate, setFromDate] = useState('')
     const [filterDate, setFilterDate] = useState({})
+    const [clear, setClear] = useState(false)
 
 
     const { data: allParcels = [], isLoading, refetch } = useQuery({
         queryKey: ['allParcels', filterDate],
         queryFn: async () => {
-            const { data } = await axiosPublic.get('/filter', { params: filterDate });
+            const { data } = await axiosSecure.get('/filter', { params: filterDate });
             return data;
         },
     });
@@ -42,12 +42,18 @@ const AllParcels = () => {
                 fromDate,
                 toDate,
             });
+            setClear(true)
         } else {
             setFilterDate({});
         }
         refetch();
     };
 
+
+    const handleAll = () => {
+        setFilterDate({})
+        setClear(false)
+    }
 
     return (
         <div className="p-1 md:p-4 lg:p-6  text-black">
@@ -82,13 +88,19 @@ const AllParcels = () => {
                             className="border rounded-lg p-2 w-full md:max-w-32 text-sm"
                         />
                     </div>
-                    <div className="flex mt-6 items-center">
+                    <div className="flex md:mt-7 gap-2 items-center">
                         <button
                             onClick={handleSubmit}
                             className="bg-purple-500 hover:bg-purple-600 text-white btn btn-sm w-full "
                         >
-                            Filter
+                            Filter by Req. date
                         </button>
+                        {clear && <button
+                            onClick={handleAll}
+                            className="bg-gray-300 hover:bg-gray-400 btn btn-sm "
+                        >
+                            Alls
+                        </button>}
                     </div>
                 </div>
             </div>

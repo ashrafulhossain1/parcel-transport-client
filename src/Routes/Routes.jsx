@@ -20,6 +20,7 @@ import PaymentSuccess from "../Pages/Payments/PaymentSuccess";
 import MyReviews from "../Pages/Dashboard/DeliveryMan/MyReviews";
 import MyProfile from "../Pages/Shared/MyProfile/MyProfile";
 import UpdateProfile from "../Pages/Auth/UpdateProfile";
+import UserRoute from "./UserRoute";
 
 
 export const router = createBrowserRouter([
@@ -65,7 +66,7 @@ export const router = createBrowserRouter([
             // role  User
             {
                 path: 'book-parcel',
-                element: <PrivateRoute><BookParcel></BookParcel></PrivateRoute>
+                element: <UserRoute><BookParcel></BookParcel></UserRoute>
             },
             {
                 path: 'update-parcel/:id',
@@ -74,7 +75,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'my-parcels',
-                element: <PrivateRoute><MyParcels></MyParcels></PrivateRoute>
+                element: <UserRoute><MyParcels></MyParcels></UserRoute>
             },
             {
                 path: 'payment/:id',
