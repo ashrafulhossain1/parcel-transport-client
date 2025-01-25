@@ -21,7 +21,7 @@ const MyParcels = () => {
     }
   })
 
-  console.log(myParcels)
+  // console.log(myParcels)
 
   if (myParcelLoading) {
     return <span className="loading loading-bars loading-lg"></span>

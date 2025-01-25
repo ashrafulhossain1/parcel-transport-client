@@ -58,7 +58,7 @@ const UpdateParcel = () => {
 
       axiosSecure.patch(`/parcels/update/${id}`, updateFormData)
          .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
             if (res.data.modifiedCount) {
                Swal.fire("Your parcel updated successfully");
                // console.log(res.data)

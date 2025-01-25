@@ -14,7 +14,7 @@ const useRole = () => {
             return data.role
         }
     })
-    console.log(role, isLoading)
+    // console.log(role, isLoading)
     return [role, isLoading]
 };
 
