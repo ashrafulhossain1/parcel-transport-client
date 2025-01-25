@@ -18,7 +18,7 @@ const AdminDashboard = () => {
 // Process the fetched data using reduce to group by date
     const chartData = Object.values(
         parcels.reduce((acc, parcel) => {
-            const date = parcel.bookingDate.split('T')[0];
+            const date = parcel?.bookingDate?.split('T')[0];
             if (acc[date]) {
                 acc[date].value += 1;
             } else {

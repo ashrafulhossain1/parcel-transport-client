@@ -79,7 +79,7 @@ const SignIn = () => {
                     <div>
                         <button
                             type='submit'
-                            className='bg-lime-500 w-full rounded-md py-3 text-white'
+                            className='bg-purple-500 hover:bg-purple-600 w-full rounded-md py-3 text-white'
                         >
                             {loading ? (
                                 <TbFidgetSpinner className='animate-spin m-auto' />
@@ -90,7 +90,7 @@ const SignIn = () => {
                     </div>
                 </form>
                 <div className='space-y-1'>
-                    <button className='text-xs hover:underline hover:text-lime-500 text-gray-400'>
+                    <button className='text-xs hover:underline hover:text-purple-600 text-gray-400'>
                         Forgot password?
                     </button>
                 </div>

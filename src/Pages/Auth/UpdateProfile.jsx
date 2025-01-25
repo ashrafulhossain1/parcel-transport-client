@@ -35,7 +35,7 @@ const UpdateProfile = () => {
                 // console.log('Profile updated successfully');
 
                 // Update database with new profile data
-                axiosPublic.patch(`/user/profileUpdate/${user?.email}`, { name, photoURL })
+                axiosPublic.patch(`/user/profileUpdate/${user?.email}`, { name, photo: photoURL })
                     .then(() => {
                         toast.success('Profile updated successfully');
                         navigate('/dashboard/my-profile');
