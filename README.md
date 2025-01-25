@@ -8,7 +8,7 @@
 - **Password**: A123456Aa
 
 ## Delivery Man Credentials
-- **Email**: Alexander@gmail.com
+- **Email**: alexander@gmail.com
 - **Password**: D123456Aa
 
 ## GitHub Repositories
