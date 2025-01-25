@@ -137,7 +137,7 @@ const BookParcel = () => {
                     <div>
                         <label className=" font-medium text-sm sm:text-base">Parcel Weight (kg)</label>
                         <input
-                            step="any"
+                            // step="any"
                             type="number"
                             placeholder="Enter parcel weight"
                             className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -283,7 +283,8 @@ const BookParcel = () => {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="mt-6 px-4 py-2 col-span-2 w-full bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                    className="mt-6 px-4 py-2 col-span-2 w-full bg-purple-500 text-white rounded
+                     hover:bg-purple-600 transition"
                 >
                     Book Parcel
                 </button>

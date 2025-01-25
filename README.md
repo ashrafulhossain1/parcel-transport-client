@@ -62,7 +62,7 @@ The Parcel Transportation web application is designed to simplify the process of
 
 5. Access the application locally:
    - Client: `http://localhost:3000`
-   - Server: `http://localhost:5000`
+   - Server: `https://parcel-transport-server.vercel.app`
 
 ### How to Use
 1. Log in using the provided credentials.

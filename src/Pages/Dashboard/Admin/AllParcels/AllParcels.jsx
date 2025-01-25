@@ -17,7 +17,7 @@ const AllParcels = () => {
     const { data: allParcels = [], isLoading, refetch } = useQuery({
         queryKey: ['allParcels', filterDate],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/filter', { params: filterDate });
+            const { data } = await axiosSecure.get('/parcels', { params: filterDate });
             return data;
         },
     });
@@ -25,7 +25,7 @@ const AllParcels = () => {
     const { data: deliveryMans } = useQuery({
         queryKey: ['deliveryMans'],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/users/deliveryMan')
+            const { data } = await axiosSecure.get('/assignDeliveryMan')
             return data;
         }
     })

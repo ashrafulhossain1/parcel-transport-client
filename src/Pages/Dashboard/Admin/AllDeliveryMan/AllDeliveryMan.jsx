@@ -9,13 +9,13 @@ const AllDeliveryMan = () => {
    const { data: allDeliveryMans, isLoading, isError } = useQuery({
       queryKey: ['allDeliveryMans'],
       queryFn: async () => {
-         const { data } = await axiosSecure.get('users/deliveryPage');
+         const { data } = await axiosSecure.get('/deliveryPage');
          return data;
       }
    });
 
    if (isLoading) {
-      return <span className="loading loading-bars loading-lg"></span>
+      return <div>Loading...</div>;
    }
 
    if (isError) {

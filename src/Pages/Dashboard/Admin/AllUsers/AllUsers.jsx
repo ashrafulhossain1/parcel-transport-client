@@ -33,7 +33,7 @@ const AllUsers = () => {
 
     useEffect(() => {
         // usersCount API call using axios
-        axios.get('http://localhost:5000/userCount')
+        axios.get('https://parcel-transport-server.vercel.app/userCount')
             .then(response => setUsersCount(response.data.userCount))
             .catch(error => console.error('Error fetching users count:', error));
     }, [])

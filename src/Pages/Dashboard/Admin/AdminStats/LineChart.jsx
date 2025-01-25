@@ -17,8 +17,8 @@ const LineChart = () => {
     useEffect(() => {
         const fetchCounts = async () => {
             try {
-                const { data: deliveredData } = await axios.get('http://localhost:5000/deliveredCount');
-                const { data: bookedData } = await axios.get('http://localhost:5000/bookedCount');
+                const { data: deliveredData } = await axios.get('https://parcel-transport-server.vercel.app/deliveredCount');
+                const { data: bookedData } = await axios.get('https://parcel-transport-server.vercel.app/bookedCount');
 
                 const combinedData = [
                     { name: 'Delivered', count: deliveredData.deliveredCount },

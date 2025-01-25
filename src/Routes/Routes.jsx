@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             {
                 path: 'update-parcel/:id',
                 element: <PrivateRoute><UpdateParcel></UpdateParcel></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/parcels/update/${params.id}`)
+                loader: ({ params }) => fetch(`https://parcel-transport-server.vercel.app/parcels/update/${params.id}`)
             },
             {
                 path: 'my-parcels',
@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/payment/${params.id}`)
+                loader: ({ params }) => fetch(`https://parcel-transport-server.vercel.app/payment/${params.id}`)
             },
             {
                 path: 'payment-success',
