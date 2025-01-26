@@ -21,12 +21,14 @@ import MyReviews from "../Pages/Dashboard/DeliveryMan/MyReviews";
 import MyProfile from "../Pages/Shared/MyProfile/MyProfile";
 import UpdateProfile from "../Pages/Auth/UpdateProfile";
 import UserRoute from "./UserRoute";
+import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
