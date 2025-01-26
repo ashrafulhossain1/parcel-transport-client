@@ -45,6 +45,7 @@ const AllDeliveryMan = () => {
                      <td className='px-4 py-2 border-b'>{man.phone}</td>
                      <td className='px-4 py-2 border-b'>{man.deliveryCount}</td>
                      <td className="px-4 py-2 border-b">
+                        {`${man?.reviewAverage?.toFixed(1)} `} 
                         {Array.from({ length: 5 }, (_, index) => (
                            <span key={index}>
                               {index < Math.round(man?.reviewAverage) ? '⭐' : '☆'}
