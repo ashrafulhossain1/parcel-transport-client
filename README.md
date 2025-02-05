@@ -1,7 +1,12 @@
 # Parcel Transportation Web Application
 
+## Project Overview
+The Parcel Transportation web application is designed to simplify the process of parcel management, delivery, and tracking. It includes user-friendly features for admins, delivery personnel, and customers.
+
 ## Live Website
 [Parcel Transportation Client Site](https://parcel-transpotation.web.app/)
+
+![parcel transport Homepage](https://i.ibb.co.com/5WXZYVDS/Fire-Shot-Capture-035-Transport-Pro-Home-parcel-transpotation-web-app.png)
 
 ## Admin Credentials
 - **Email**: arif@jaman.com
@@ -11,12 +16,7 @@
 - **Email**: alexander@gmail.com
 - **Password**: D123456Aa
 
-## GitHub Repositories
-- [Client Side Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-ashrafulhossain1)
-- [Server Side Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-ashrafulhossain1)
 
-## Project Overview
-The Parcel Transportation web application is designed to simplify the process of parcel management, delivery, and tracking. It includes user-friendly features for admins, delivery personnel, and customers.
 
 ### Features
 - **Admin Dashboard**:
