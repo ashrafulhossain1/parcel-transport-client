@@ -6,7 +6,7 @@ The Parcel Transportation web application is designed to simplify the process of
 ## Live Website
 [Parcel Transportation Client Site](https://parcel-transpotation.web.app/)
 
-<img src="https://i.ibb.co.com/ymyTxj5g/Fire-Shot-Capture-035-Transport-Pro-Home-parcel-transpotation-web-app.png" alt="Transport Pro Home Page">
+![EquiSports Homepage](https://prnt.sc/dLPKTSStEYKk)
 
 ## Admin Credentials
 - **Email**: arif@jaman.com
