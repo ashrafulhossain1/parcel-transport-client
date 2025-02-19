@@ -23,6 +23,7 @@ import UpdateProfile from "../Pages/Auth/UpdateProfile";
 import UserRoute from "./UserRoute";
 import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import Support from "../Pages/Support/Support";
 
 
 export const router = createBrowserRouter([
@@ -38,7 +39,12 @@ export const router = createBrowserRouter([
             {
                 path:'contactUs',
                 element: <ContactUs></ContactUs>
+            },
+            {
+                path: 'support',
+                element: <Support></Support>
             }
+
         ]
     },
     {

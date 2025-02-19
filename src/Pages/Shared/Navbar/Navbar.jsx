@@ -27,6 +27,9 @@ const Navbar = () => {
                     <NavLink to='/contactUs' className='btn btn-border  '>
                         Contact Us
                     </NavLink>
+                    <NavLink to='/support' className='btn btn-border  '>
+                        Contact Us
+                    </NavLink>
                     <MdOutlineNotificationsActive />
                 </div>
                 {
