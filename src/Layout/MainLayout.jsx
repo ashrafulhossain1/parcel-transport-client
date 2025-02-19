@@ -16,7 +16,7 @@ const MainLayout = () => {
             <div className='min-h-screen'>
                 <Outlet></Outlet>
             </div>
-            <div className='bg-gradient-to-r from-gray-800  to-gray-800 text-gray-300'>
+            <div className=' bg-white 0 text-gray-300'>
                 <Footer></Footer>
             </div>
         </div>

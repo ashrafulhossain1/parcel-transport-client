@@ -1,8 +1,8 @@
 import React from 'react';
-// import bannerImg2 from '../../../assets/banner28.webp'
-import bannerImg2 from '../../../assets/a-banner.avif'
-import './Banner.css'
+import bannerImg2 from '../../../assets/a-banner.avif';
+import './Banner.css';
 import { Parallax } from 'react-parallax';
+
 const Banner = () => {
     return (
         <Parallax
@@ -10,14 +10,13 @@ const Banner = () => {
             bgImage={bannerImg2}
             bgImageAlt="Parcel Transport"
             strength={-500}
+            className="object-cover"
         >
-            <div
-                className="hero min-h-[80vh] bg-cover bg-center"
-            >
+            <div className="hero h-[300px] md:min-h-[80vh] bg-cover bg-center">
                 <div className="hero-overlay bg-opacity-65 bg-black"></div>
-                <div className="hero-content text-neutral-content text-center w-[70%] flex flex-col mx-auto">
+                <div className="hero-content text-neutral-content text-center p-2 w-full  md:w-[70%] flex flex-col mx-auto">
                     {/* Header Section */}
-                    <h1 className="text-3xl md:text-5xl xl:text-6xl font-bold text-white">
+                    <h1 className="text-2xl md:text-5xl xl:text-6xl font-bold text-white">
                         We Are Provide <span className="text-orange-600">Logistic & Transport</span> Services For You
                     </h1>
 
