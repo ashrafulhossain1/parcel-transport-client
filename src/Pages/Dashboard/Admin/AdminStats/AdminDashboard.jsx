@@ -15,7 +15,7 @@ const AdminDashboard = () => {
         },
     });
 
-// Process the fetched data using reduce to group by date
+    // Process the fetched data using reduce to group by date
     const chartData = Object.values(
         parcels.reduce((acc, parcel) => {
             const date = parcel?.bookingDate?.split('T')[0];
@@ -28,6 +28,18 @@ const AdminDashboard = () => {
         }, {})
     );
 
+    const testing = parcels.reduce((acc, parcel) => {
+        const date = parcel?.bookingDate?.split('T')[0];
+        if (acc[date]) {
+            acc[date].value += 1;
+        } else {
+            acc[date] = { date: date, value: 1 };
+        }
+        return acc;
+    }, {})
+
+    console.log(testing)
+    
     return (
         <div className="p-4">
             <div className="flex flex-col items-center">

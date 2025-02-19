@@ -1,5 +1,6 @@
 import React from 'react';
-import bannerImg2 from '../../../assets/banner28.webp'
+// import bannerImg2 from '../../../assets/banner28.webp'
+import bannerImg2 from '../../../assets/a-banner.avif'
 import './Banner.css'
 import { Parallax } from 'react-parallax';
 const Banner = () => {
@@ -8,34 +9,30 @@ const Banner = () => {
             blur={{ min: -50, max: 50 }}
             bgImage={bannerImg2}
             bgImageAlt="Parcel Transport"
-            strength={-200}
+            strength={-500}
         >
             <div
-                className="hero min-h-[70vh] bg-cover bg-center"
-                style={{ backgroundImage: `url(${bannerImg2})` }}
+                className="hero min-h-[80vh] bg-cover bg-center"
             >
-                <div className="hero-overlay bg-opacity-60 bg-black"></div>
-                <div className="hero-content text-neutral-content text-center w-[70%] mx-auto">
-                    <div className="flex flex-col items-center">
-                        <h1 className="mb-5 text-2xl md:text-4xl xl:text-5xl font-bold">
-                            Reliable Parcel Transport Services
-                        </h1>
-                        <p className="mb-5 text-md md:text-lg">
-                            Deliver your packages quickly and securely to any destination. We provide the fastest, most
-                            reliable parcel transportation services to meet your needs.
-                        </p>
-                        <fieldset className="form-control w-full">
-                            <div className="join md:w-1/2 md:mx-auto">
-                                <input
-                                    type="text"
-                                    placeholder="Enter your pickup or delivery address"
-                                    className="input search-filter focus:outline-white input-bordered join-item w-full text-black bg-white placeholder-gray-400"
-                                />
-                                <button className="btn bg-purple-500 border-none join-item">
-                                    Search
-                                </button>
-                            </div>
-                        </fieldset>
+                <div className="hero-overlay bg-opacity-65 bg-black"></div>
+                <div className="hero-content text-neutral-content text-center w-[70%] flex flex-col mx-auto">
+                    {/* Header Section */}
+                    <h1 className="text-3xl md:text-5xl xl:text-6xl font-bold text-white">
+                        We Are Provide <span className="text-orange-600">Logistic & Transport</span> Services For You
+                    </h1>
+
+                    {/* Subtext Section */}
+                    <p className="text-md md:text-lg text-gray-200">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    </p>
+
+                    {/* Button Section */}
+                    <div className="flex flex-col md:flex-row gap-4 justify-center">
+                      <a href="#feature">
+                      <button className="btn border-none bg-orange-600 text-white hover:bg-orange-600 rounded-lg px-6 py-3 shadow-lg">
+                            Explore More
+                        </button>
+                      </a>
                     </div>
                 </div>
             </div>

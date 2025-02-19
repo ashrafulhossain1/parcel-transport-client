@@ -10,7 +10,7 @@ const MainLayout = () => {
             <Helmet>
                 <title>TransportPro | Home</title>
             </Helmet>
-            <div className='sticky  nav-glass  top-0 left-0 z-40'>
+            <div className='sticky bg-white  top-0 left-0 z-40'>
                 <Navbar></Navbar>
             </div>
             <div className='min-h-screen'>

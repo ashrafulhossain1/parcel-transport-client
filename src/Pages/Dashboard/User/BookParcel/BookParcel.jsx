@@ -31,7 +31,8 @@ const BookParcel = () => {
         }
 
         const formData = {
-            name: user?.displayName, email: user?.email, phoneNumber, parcelType, parcelWeight, receiverName, receiverPhoneNumber, deliveryAddress, requestedDeliveryDate: new Date(requestedDeliveryDate).toISOString(), latitude, longitude, price, bookingDate: new Date().toISOString()
+            name: user?.displayName, email: user?.email, phoneNumber, parcelType, parcelWeight, receiverName, receiverPhoneNumber, deliveryAddress, requestedDeliveryDate: new Date(requestedDeliveryDate).toISOString(), latitude, longitude, price, 
+            bookingDate: new Date().toISOString()
         };
         axiosSecure.post('/parcels', formData)
             .then(res => {
