@@ -15,7 +15,7 @@ const AllDeliveryMan = () => {
    });
 
    if (isLoading) {
-      return <div>Loading...</div>;
+      return <span className="loading loading-bars loading-lg"></span>
    }
 
    if (isError) {

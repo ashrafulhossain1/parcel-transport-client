@@ -13,7 +13,7 @@ const TopDeliveryMen = () => {
     });
 
     if (isLoading) {
-        return <div className="text-center py-12">Loading...</div>;
+        return <span className="loading loading-bars loading-lg"></span>
     }
 
     return (

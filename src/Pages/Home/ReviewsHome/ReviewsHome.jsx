@@ -17,7 +17,7 @@ const ReviewsHome = () => {
     if (isLoading) {
         return (
             <div className="text-center py-8">
-                <p className="text-orange-600 text-lg font-semibold">Loading reviews...</p>
+               <span className="loading loading-bars loading-lg"></span>
             </div>
         );
     }
