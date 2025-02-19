@@ -21,8 +21,11 @@ const Navbar = () => {
             </div>
             <div className="flex-none">
                 <div className="flex items-center gap-4 px-2">
-                    <NavLink to='/' className='btn btn-border rounded-none btn-sm text-black bg-black '>
+                    <NavLink to='/' className='btn btn-border '>
                         Home
+                    </NavLink>
+                    <NavLink to='/contactUs' className='btn btn-border  '>
+                        Contact Us
                     </NavLink>
                     <MdOutlineNotificationsActive />
                 </div>
@@ -32,7 +35,7 @@ const Navbar = () => {
                         :
                         <>
                             <Link to='/signIn'>
-                                <button className="btn btn-border btn-sm rounded-none bg-orange-600 hover:bg-[#fc3737e8] text-white font-bold">
+                                <button className="btn btn-border rounded-none bg-orange-600 hover:bg-[#fc3737e8] text-white font-bold">
                                     sign in
                                 </button>
                             </Link>
