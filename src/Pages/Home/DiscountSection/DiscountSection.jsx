@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "lottie-react";
-import discountAnimation from "./Animation - 1739962244725.json"; // Replace with your Lottie animation file
+import discountAnimation from "./Animation - 1739962244725.json"; 
 import './dicount.css';
 
 const DiscountSection = () => {
@@ -10,7 +10,7 @@ const DiscountSection = () => {
                 {/* Section Heading */}
                 <h2 className="text-4xl font-bold text-center mb-8 text-orange-600">
                     Exclusive Discount Offer!
-                </h2>
+            </h2>
                 <p className="text-lg text-center text-gray-700 mb-12">
                     Send parcels weighing <strong>more than 2kg</strong> and get a{" "}
                     <span className="text-orange-600 font-bold">32% discount</span>—Pay only{" "}

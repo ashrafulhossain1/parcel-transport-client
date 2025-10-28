@@ -30,6 +30,12 @@ const SignIn = () => {
             });
     };
 
+    // Function to autofill email and password for Delivery-man and Admin
+    const autofillCredentials = (email, password) => {
+        document.getElementById('email').value = email;
+        document.getElementById('password').value = password;
+    };
+
     return (
         <div className="flex justify-center items-center flex-col md:flex-row bg-gray-100">
             {/* Left Side - Login Form */}
@@ -38,6 +44,23 @@ const SignIn = () => {
                     <h1 className="my-3 text-4xl font-bold text-orange-600">Log In</h1>
                     <p className="text-sm text-gray-500">Sign in to access your account</p>
                 </div>
+
+                {/* Buttons to autofill credentials */}
+                <div className="flex justify-between mb-4">
+                    <button
+                        onClick={() => autofillCredentials('Alexander@gmail.com', 'D123456Aa')}
+                        className="bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700"
+                    >
+                        Delivery-man Login
+                    </button>
+                    <button
+                        onClick={() => autofillCredentials('arif@jaman.com', 'A123456Aa')}
+                        className="bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700"
+                    >
+                        Admin Login
+                    </button>
+                </div>
+
                 <form onSubmit={handleSignIn} noValidate="" action="" className="space-y-6">
                     <div className="space-y-4">
                         <div>

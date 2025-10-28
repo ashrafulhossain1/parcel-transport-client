@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "lottie-react";
-import deliveryAnimation from "./Animation - 1739958038886.json"; // Replace with a better animation JSON file
+// import deliveryAnimation from "./Animation - 1739958038886.json"; // Replace with a better animation JSON file
 
 const PackageSection = () => {
     const packages = [
@@ -36,14 +36,14 @@ const PackageSection = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-10">
                     {/* Left Side - Lottie Animation */}
                     <div className="flex items-center justify-center w-full md:w-1/3 ">
-                        <Lottie
+                        {/* <Lottie
                             animationData={deliveryAnimation}
                             loop={true}
                             style={{
                                 maxWidth: "350px",
                                 margin: "0 auto",
                             }}
-                        />
+                        /> */}
                     </div>
 
                     {/* Right Side - Packages */}

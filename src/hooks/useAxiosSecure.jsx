@@ -8,6 +8,7 @@ const axiosSecure = axios.create({
 
 const useAxiosSecure = () => {
     const { logOut } = useAuth()
+    
     const navigate = useNavigate()
     // send token in server site
     axiosSecure.interceptors.request.use(function (config) {
