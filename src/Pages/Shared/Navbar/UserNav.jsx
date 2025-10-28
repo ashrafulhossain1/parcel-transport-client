@@ -3,72 +3,90 @@ import useAuth from '../../../hooks/useAuth';
 import useRole from '../../../hooks/useRole';
 
 const UserNav = () => {
-    const { user, logOut } = useAuth()
-    const [role, isLoading] = useRole()
+    const { user, logOut } = useAuth();
+    const [role, isLoading] = useRole();
 
     const handleLogout = () => {
         logOut()
             .then(() => {
-                // console.log('successfully Logout')
+                // console.log('successfully Logout');
             })
             .catch(error => {
-                // console.log('Error by Logout ', error)
-            })
-    }
+                // console.log('Error by Logout ', error);
+            });
+    };
 
     return (
         <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 h-10 border-2 border-slate-100 rounded-full">
+            {/* Avatar Button */}
+            <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar hover:scale-105 transition-transform duration-200"
+            >
+                <div className="w-10 h-10 border-2 border-[#E54530] rounded-full overflow-hidden">
                     <img
-                        alt="Tailwind CSS Navbar component"
-                        src={user?.photoURL} />
+                        alt="User avatar"
+                        src={user?.photoURL || 'https://i.ibb.co/6v1hQZC/default-avatar.png'}
+                    />
                 </div>
             </div>
+
+            {/* Dropdown Menu */}
             <ul
                 tabIndex={0}
-                className="menu menu-sm gap-2 dropdown-content bg-black/50 backdrop-blur-lg  rounded-box z-[1] mt-3 p-2 shadow">
+                className="menu menu-sm gap-2 dropdown-content bg-white/90 backdrop-blur-md border border-gray-200 shadow-xl rounded-xl z-[1] mt-3 p-2 text-gray-800 min-w-[180px]"
+            >
+                {/* User Name */}
                 <li>
-                    <button 
-                    className="bg-black/5 whitespace-nowrap hover:bg-gray-900" disabled={true}>{user?.displayName}</button>
+                    <button
+                        className="text-center font-semibold text-[#E54530] cursor-default bg-transparent hover:bg-transparent"
+                        disabled
+                    >
+                        {user?.displayName || 'User'}
+                    </button>
                 </li>
-                {/* for user */}
-                {role === 'User' &&
 
+                {/* User Role Dashboards */}
+                {role === 'User' && (
                     <li>
-                        <NavLink to='/dashboard/my-profile' 
-                        className='bg-black/5 whitespace-nowrap hover:bg-gray-900'>
+                        <NavLink
+                            to="/dashboard/my-profile"
+                            className="rounded-md transition-all duration-200 hover:bg-[#E54530]/10 hover:text-[#E54530]"
+                        >
                             Dashboard
                         </NavLink>
                     </li>
-                }
+                )}
 
-                {/* for Delivery Man */}
-                {
-                    role === 'DeliveryMen' &&
-                    <>
-                        <li>
-                            <NavLink to='/dashboard/my-delivery-list' className='bg-black/5 whitespace-nowrap hover:bg-gray-800'>
-                                Dashboard
-                            </NavLink>
-                        </li>
-                    </>
-                }
+                {role === 'DeliveryMen' && (
+                    <li>
+                        <NavLink
+                            to="/dashboard/my-delivery-list"
+                            className="rounded-md transition-all duration-200 hover:bg-[#E54530]/10 hover:text-[#E54530]"
+                        >
+                            Dashboard
+                        </NavLink>
+                    </li>
+                )}
 
-                {/* for Admin */}
+                {role === 'Admin' && (
+                    <li>
+                        <NavLink
+                            to="/dashboard"
+                            className="rounded-md transition-all duration-200 hover:bg-[#E54530]/10 hover:text-[#E54530]"
+                        >
+                            Dashboard
+                        </NavLink>
+                    </li>
+                )}
 
-                {
-                    role === 'Admin' &&
-                    <>
-                        <li>
-                            <NavLink to='/dashboard' className='bg-black/5 whitespace-nowrap hover:bg-gray-900'>
-                                Dashboard
-                            </NavLink>
-                        </li>
-                    </>
-                }
+                {/* Logout */}
                 <li>
-                    <button onClick={handleLogout} className="bg-black/5 whitespace-nowrap hover:bg-gray-900">
+                    <button
+                        onClick={handleLogout}
+                        className="rounded-md transition-all duration-200 hover:bg-[#E54530] hover:text-white font-medium"
+                    >
                         Log Out
                     </button>
                 </li>
